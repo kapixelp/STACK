@@ -3,4 +3,8 @@ project(MyStack)
 
 set(CMAKE_CXX_STANDARD 14)
 
-add_executable(MyStack main.cpp Stack.cpp Stack.h)
+add_executable(MyStack main.cpp Stack.cpp Stack.h
+        queue.cpp
+        queue.h
+        list.cpp
+        list.h)

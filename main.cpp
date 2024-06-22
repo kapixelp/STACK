@@ -1,15 +1,16 @@
 //#include <iostream>
 #include <stdio.h>
 #include "Stack.h"
+#include "queue.h"
 
 void menu(void)
 {
     printf("\n");
-    printf("1 - poloz liczbe na stosie (Push)\n");
-    printf("2 - odczytaj wartosc ze szczytu stosu (Top)\n");
-    printf("3 - zdejmij liczbe ze stosu (Pop)\n");
-    printf("4 - sprawdz czy stos jest pusty\n");
-    printf("5 - sprawdz czy stos jest pelny\n");
+    printf("1 - dodaj do kolejki (write)\n");
+    printf("2 - odczytaj wartosc z kolejki (first)\n");
+    printf("3 - odczytaj wartosc z kolejki i usun (read)\n");
+    printf("4 - sprawdz czy kolejka jest pusta\n");
+    printf("5 - sprawdz czy kolejka jest pelna\n");
     printf("6 - koniec programu\n");
     printf("\n");
 }
@@ -18,7 +19,7 @@ int main()
 {
     int temp = 0;
     int option = 0;
-    printf("STOS - implementacja w tablicy statycznej\n");
+    printf("Kolejka - implementacja w tablicy statycznej\n");
     while (1)
     {
         menu();
@@ -28,53 +29,53 @@ int main()
         switch (option)
         {
             case 1:
-                if ( !isStackFull() ){
+                if ( !isQueueFull() ){
                     printf("Podaj wartosc: ");
                     scanf("%d", &temp);
-                    Push(temp);
+                    write(temp);
                 }
                 else {
-                    printf("operacja niedozwolona STOS pelny!!!\n\n");
+                    printf("operacja niedozwolona Kolejka pelna!!!\n\n");
                 }
 
                 break;
 
             case 2:
-                if (!isStackEmpty()) {
-                    temp = Top();
+                if (!isQueueEmpty()) {
+                    temp = first();
                     printf("Odczytana wartosc: %d", temp);
                 }
                 else {
-                    printf("operacja niedozwolona STOS pusty!!!\n\n");
+                    printf("operacja niedozwolona Kolejka pustaq!!!\n\n");
                 }
 
                 break;
 
             case 3:
-                if (!isStackEmpty()) {
-                    temp = Pop();
+                if (!isQueueEmpty()) {
+                    temp = read();
                     printf("Odczytana wartosc: %d", temp);
                 }
                 else {
-                    printf("operacja niedozwolona STOS pusty!!!\n\n");
+                    printf("operacja niedozwolona Kolejka pusta!!!\n\n");
                 }
                 break;
 
             case 4:
-                if (isStackEmpty()) {
-                    printf("STOS jest pusty.\n");
+                if (isQueueEmpty()) {
+                    printf("Koleka jest pusta.\n");
                 }
                 else {
-                    printf("STOS nie jest pusty.\n");
+                    printf("Kolejka nie jest pusta.\n");
                 }
                 break;
 
             case 5:
-                if (isStackFull()) {
-                    printf("STOS jest pelny.\n");
+                if (isQueueFull()) {
+                    printf("Kolejka jest pelna.\n");
                 }
                 else {
-                    printf("STOS nie jest pelny.\n");
+                    printf("Kolejka nie jest pelna.\n");
                 }
                 break;
 
